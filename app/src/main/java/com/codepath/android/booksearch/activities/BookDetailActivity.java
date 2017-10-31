@@ -52,15 +52,15 @@ public class BookDetailActivity extends ActionBarActivity {
         loadBook(book);
     }
 
-    // Populate data for the book
+
     private void loadBook(Book book) {
-        //change activity title
+
         this.setTitle(book.getTitle());
-        // Populate data
+
         Picasso.with(this).load(Uri.parse(book.getLargeCoverUrl())).error(R.drawable.ic_nocover).into(ivBookCover);
         tvTitle.setText(book.getTitle());
         tvAuthor.setText(book.getAuthor());
-        // fetch extra book data from books API
+
         client = new BookClient();
         client.getExtraBookDetails(book.getOpenLibraryId(), new JsonHttpResponseHandler() {
             @Override
